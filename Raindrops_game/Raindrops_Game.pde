@@ -18,4 +18,3 @@ void draw() {
     D1[i].circleCheck(C1);
   }
 }
-
