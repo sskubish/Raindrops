@@ -9,7 +9,7 @@ class Raindrops {
     loc = new PVector(random(width), random(-500, 0));
     vel = new PVector(0, random(1, 6));
     acc = new PVector(0, random(-1, 1));
-    d = random(50);
+    d = random(10, 50);
     r = 0;
     g = 0;
     b = 255;
@@ -29,9 +29,10 @@ class Raindrops {
   }
   void circleCheck(Catcher c) {
     if (loc.dist(c.loc) < d/2+(c.d/2)) {
-       r = 93;
-       g = 7;
-       b = 185;
+      r = 93;
+      g = 7;
+      b = 185;
     }
   }
 }
+
