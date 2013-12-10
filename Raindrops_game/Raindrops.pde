@@ -27,9 +27,9 @@ class Raindrops {
   void move() {
     loc.add(vel);
   }
-  //reset raindrops to the top if they fall off the screen (DISABLED)
+  //reset raindrops to above the top if they fall past the catcher and resest 200 above the window
   void endthegame() {
-    if (loc.y >= height) {
+    if (loc.y >= -200) {
       gameOver++;
       loc.x = 100000;
       if (gameOver >= 3) {
