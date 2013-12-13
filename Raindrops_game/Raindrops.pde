@@ -16,7 +16,6 @@ class Raindrops {
     g = 0;
     b = 255;
     int gameOver = 0;
-    run = true;
   }
   //display the raindrops
   void display() {
@@ -29,9 +28,8 @@ class Raindrops {
   }
   //reset raindrops to above the top if they fall past the catcher and resest 200 above the window
   void endthegame() {
-    if (loc.y >= -200) {
+    if (loc.y >= height) {
       gameOver++;
-      loc.x = 100000;
       if (gameOver >= 3) {
         run = false;
       }
@@ -40,7 +38,7 @@ class Raindrops {
   //make a raindrop disappear if it makes contact with the cathcher, add 1 to the score if this happens
   void goAway(Catcher c) {
     if (loc.dist(c.loc) < d/2+(c.d/2)) {
-      loc = new PVector(width +1000, height);
+      loc = new PVector(random(width), -200);
       score ++;
     }
   }

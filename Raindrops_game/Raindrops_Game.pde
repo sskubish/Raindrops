@@ -3,10 +3,10 @@ Raindrops[]  R1 = new Raindrops[2000];
 Catcher C1;
 Timer T1;
 Gameover G1;
-boolean run;
 int score;
 int index = 0;
 int time = 0;
+boolean run;
 //give the array Raindrops a value with a for loop
 //give other classes that need value their value
 void setup() {
@@ -17,6 +17,7 @@ void setup() {
     T1 = new Timer();
     textSize(100);
     G1 = new Gameover();
+    run = true;
   }
 }
 void draw() {
@@ -31,8 +32,7 @@ void draw() {
     R1[i].endthegame();
     R1[i].goAway(C1);
   }
-  if (millis() >= time)
-  {      
+  if (millis() >= time){      
     time+=3000;
     index++;
   }
