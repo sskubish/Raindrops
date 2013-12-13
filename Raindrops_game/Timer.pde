@@ -20,4 +20,3 @@ class Timer {
       return false;
   }
 }
-
