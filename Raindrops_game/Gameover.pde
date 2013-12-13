@@ -7,6 +7,7 @@ class Gameover {
       textAlign(CENTER);
       textSize(100);
       text("GAME OVER", width/2, height/2);
+      text ("score: "+ score, width/2, height/2+100);
     }
   }
 }
