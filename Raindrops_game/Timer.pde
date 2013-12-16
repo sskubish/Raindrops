@@ -6,6 +6,7 @@ class Timer {
     background(c);
     currentTime = millis();
     timeDifference = currentTime - oldTime;
+    //display time, (DISABLED)
     //text(millis()/1000, width/16, height/8);
     if (timeDifference >= 2000) {
       c = color(random(255), random(255), random(255));
@@ -16,3 +17,4 @@ class Timer {
       return false;
   }
 }
+

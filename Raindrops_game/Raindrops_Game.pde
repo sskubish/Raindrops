@@ -13,6 +13,8 @@ int  oldTime = 0;
 int timeDifference= 0;
 color c = color(0);
 int gameOver;
+int lives;
+PImage winningmove;
 //give the array Raindrops a value with a for loop
 //give other classes that need value their value
 void setup() {
@@ -25,6 +27,8 @@ void setup() {
     G1 = new Gameover();
     run = true;
     start = false;
+    lives = 3;
+    winningmove = loadImage("winningmove.jpg");
   }
 }
 void draw() {
@@ -33,13 +37,19 @@ void draw() {
     background(0);
     fill(0, 0, 200);
     rectMode(CENTER);
-    rect(width/2, height/2, 200, 200);
+    rect(width/2, 200, 400, 200);
+    rect(width/2, 600, 400, 200);
     fill(200, 0, 0);
     textAlign(CENTER);
-    text("Start", width/2, height/2+10);
+    text("Start (normal)", width/2, 200);
+    text("Start (easy)", width/2, 600);
   }
   //start the game with a mousepress
-  if (mousePressed ) {
+  if (mousePressed && mouseX >= 200 && mouseX <= 500 && mouseY >= 100 && mouseY <= 300) {
+    start = true;
+    textSize(100);
+  }
+  if (mousePressed && mouseX >= 200 && mouseX <= 500 && mouseY >= 500 && mouseY <= 700) {
     start = true;
     textSize(100);
   }
@@ -65,7 +75,9 @@ void draw() {
       index++;
     }
     //display score that increses because of goAway in the raindrops class
-    text("score "+ score, width/2-50, height/2);
+    textSize(50);
+    text("score: "+ score, width-200, 200);
+    text("lives:" + lives, width-200, 100);
     G1.gameover();
   }
   if (gameOver >= 3) {
