@@ -36,11 +36,17 @@ class Raindrops {
   }
   //make a raindrop disappear if it makes contact with the cathcher, add 1 to the score if this happens, random chance for caught drops to reappear later
   void goAway(Catcher c) {
-    if (loc.dist(c.loc) < d/2+(c.d/2)) {
+    if (loc.dist(c.loc) < d/2+(c.d/2) && normal == true) {
       loc = new PVector(random(width), -200);
       loc.set(random(width), -100);
       acc.set(0, random(0, 1));
       vel.set(0, random(0, 1));
+      score ++;
+    }
+    if (loc.dist(c.loc) < d/2+(c.d/2) && easy == true) {
+      loc.set(random(width), -100);
+      acc.set(0,0);
+      vel.set(0,0);
       score ++;
     }
   }

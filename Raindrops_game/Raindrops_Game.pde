@@ -15,6 +15,8 @@ color c = color(0);
 int gameOver;
 int lives;
 PImage winningmove;
+boolean normal;
+boolean easy;
 //give the array Raindrops a value with a for loop
 //give other classes that need value their value
 void setup() {
@@ -29,6 +31,8 @@ void setup() {
     start = false;
     lives = 3;
     winningmove = loadImage("winningmove.jpg");
+    normal = false;
+    easy = false;
   }
 }
 void draw() {
@@ -47,10 +51,12 @@ void draw() {
   //start the game with a mousepress
   if (mousePressed && mouseX >= 200 && mouseX <= 500 && mouseY >= 100 && mouseY <= 300) {
     start = true;
+    normal = true;
     textSize(100);
   }
   if (mousePressed && mouseX >= 200 && mouseX <= 500 && mouseY >= 500 && mouseY <= 700) {
     start = true;
+    easy = true;
     textSize(100);
   }
   //runs if start = true which is when the mouse is pressed

@@ -9,7 +9,7 @@ class Gameover {
       text("GAME OVER", width/2, height/2);
       text ("score: "+ score, width/2, height/2+100);
       imageMode(CENTER);
-      image(winningmove, width/2, 130);
+      image(winningmove, width/2, 140);
     }
   }
 }
