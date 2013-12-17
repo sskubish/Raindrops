@@ -6,33 +6,35 @@ Gameover G1;
 int score;
 int index = 0;
 int time = 0;
-boolean run;
-boolean start;
 int currentTime =0;
 int  oldTime = 0;
 int timeDifference= 0;
-color c = color(0);
 int gameOver;
 int lives;
-PImage winningmove;
+boolean run;
+boolean start;
 boolean normal;
 boolean easy;
+PImage winningmove;
+PImage bonus;
+color c = color(0);
 //give the array Raindrops a value with a for loop
 //give other classes that need value their value
 void setup() {
   C1 = new Catcher();
   for (int i = 0; i < R1.length; i++) {
-    R1[i] = new Raindrops();
     size(800, 800);
-    T1 = new Timer();
     textSize(50);
+    R1[i] = new Raindrops();
+    T1 = new Timer();
     G1 = new Gameover();
     run = true;
     start = false;
     lives = 3;
-    winningmove = loadImage("winningmove.jpg");
     normal = false;
     easy = false;
+    bonus = loadImage("bonus.jpg");
+    winningmove = loadImage("winningmove.jpg");
   }
 }
 void draw() {
@@ -49,15 +51,20 @@ void draw() {
     text("Start (easy)", width/2, 600);
   }
   //start the game with a mousepress
-  if (mousePressed && mouseX >= 200 && mouseX <= 500 && mouseY >= 100 && mouseY <= 300) {
+  if (mousePressed && mouseX >= 200 && mouseX <= 500 && mouseY >= 100 && mouseY <= 300 && start == false) {
     start = true;
     normal = true;
     textSize(100);
   }
-  if (mousePressed && mouseX >= 200 && mouseX <= 500 && mouseY >= 500 && mouseY <= 700) {
+  else if (mousePressed && mouseX >= 200 && mouseX <= 500 && mouseY >= 500 && mouseY <= 700 && start == false) {
     start = true;
     easy = true;
     textSize(100);
+  }
+  else if (mousePressed && normal == false && easy == false) {
+    //secret bonus
+    imageMode(CENTER);
+    image(bonus, width/2, height/2, width, height);
   }
   //runs if start = true which is when the mouse is pressed
   if (start == true) {
