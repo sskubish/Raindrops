@@ -1,7 +1,7 @@
 class Timer {
   void setup() {
   }
-  //display timer in the upper left(DIASABLED) that changes the background to a random color every 2 seconds
+  //display timer in the upper left(DIASABLED) that changes the background to a random color every 2 seconds, only serves as a background color changer now
   boolean run() {
     background(c);
     currentTime = millis();
@@ -17,4 +17,3 @@ class Timer {
       return false;
   }
 }
-

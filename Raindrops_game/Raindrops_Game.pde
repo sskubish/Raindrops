@@ -1,4 +1,4 @@
-//declare all the classes and the int for the score
+//initialize all the classes and the int for the score
 Raindrops[]  R1 = new Raindrops[2000];
 Catcher C1;
 Timer T1;
@@ -19,7 +19,7 @@ PImage winningmove;
 PImage bonus;
 color c = color(0);
 //give the array Raindrops a value with a for loop
-//give other classes that need value their value
+//give other classes/ints/booleans/PImages that need value their value
 void setup() {
   C1 = new Catcher();
   for (int i = 0; i < R1.length; i++) {
@@ -30,8 +30,8 @@ void setup() {
     G1 = new Gameover();
     run = true;
     start = false;
-    lives = 3;
     normal = false;
+    lives = 3;
     easy = false;
     bonus = loadImage("bonus.jpg");
     winningmove = loadImage("winningmove.jpg");
@@ -50,16 +50,18 @@ void draw() {
     text("Start (normal)", width/2, 200);
     text("Start (easy)", width/2, 600);
   }
-  //start the game with a mousepress
+  //start the game in normal mode with a mousepress
   if (mousePressed && mouseX >= 200 && mouseX <= 500 && mouseY >= 100 && mouseY <= 300 && start == false) {
     start = true;
     normal = true;
     textSize(100);
   }
+  //start the game in normal mode with a mousepress
   else if (mousePressed && mouseX >= 200 && mouseX <= 500 && mouseY >= 500 && mouseY <= 700 && start == false) {
     start = true;
     easy = true;
     textSize(100);
+    //displays Liam Neeson
   }
   else if (mousePressed && normal == false && easy == false) {
     //secret bonus
@@ -87,14 +89,14 @@ void draw() {
     if (timeDifference >= 2000) {
       index++;
     }
-    //display score that increses because of goAway in the raindrops class
+    //display score that increses because of goAway in the raindrops class, display lives that decrease with each missed catch
     textSize(50);
     text("score: "+ score, width-200, 200);
     text("lives:" + lives, width-200, 100);
     G1.gameover();
   }
+  //makes run false which triggers a game over gameOver increases wit ever missed catch (found in endthegame in the Raindrops class)
   if (gameOver >= 3) {
     run = false;
   }
 }
-
