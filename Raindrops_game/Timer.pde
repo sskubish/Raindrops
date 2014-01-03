@@ -1,7 +1,7 @@
 class Timer {
   void setup() {
   }
-  //display timer in the upper left(DIASABLED) that changes the background to a random color every 2 seconds, only serves as a background color changer now
+  //display timer in the upper left(DIASABLED) that changes the background to a random color every 2 seconds, also determineswhen a new raindrop spawns
   boolean run() {
     background(c);
     currentTime = millis();

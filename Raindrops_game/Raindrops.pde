@@ -43,7 +43,7 @@ class Raindrops {
       score ++;
     }
     if (loc.dist(c.loc) < d/2+(c.d/2) && easy == true) {
-      loc.set(random(0, width-25), -100);
+      loc.set(0, -100);
       acc.set(0, 0);
       vel.set(0, 0);
       score ++;
